@@ -22,11 +22,11 @@ void task_handler(int signum) {
     clock_gettime(CLOCK_REALTIME, &end_time);
     double elapsed = get_elapsed_time(start_time, end_time);
 
-    printf("⏱️ Task %d executed at %.3f seconds since start.\n",
+    printf("Task %d executed at %.3f seconds since start.\n",
            ++task_count, elapsed);
 
     if (task_count >= RUN_COUNT) {
-        printf("\n✅ Finished %d scheduled tasks. Exiting.\n", RUN_COUNT);
+        printf("\n Finished %d scheduled tasks. Exiting.\n", RUN_COUNT);
         exit(0);
     }
 }
@@ -53,7 +53,7 @@ int main() {
     // Start the timer
     setitimer(ITIMER_REAL, &timer, NULL);
 
-    printf("🚀 Periodic scheduler started (interval = %d sec)\n", INTERVAL_SEC);
+    printf("Periodic scheduler started (interval = %d sec)\n", INTERVAL_SEC);
     printf("Press Ctrl+C to exit early.\n\n");
 
     // Infinite loop — real scheduling handled by signals
